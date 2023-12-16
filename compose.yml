@@ -7,7 +7,7 @@ services:
       - PGID=1002
       - TZ=Europe/Berlin
       - MONGO_USER=unifi
-      - MONGO_PASS=f0uYXfBmJKmfE3wge2v4xjtK8a7qmYat=
+      - MONGO_PASS=f0uYXfBmJKmfE3wge2v4xjtK8a7qmYat
       - MONGO_HOST=unifi-db
       - MONGO_PORT=27017
       - MONGO_DBNAME=unifidb
@@ -20,6 +20,8 @@ services:
       - 3478:3478/udp
       - 10001:10001/udp
       - 8080:8080
+    depends_on:
+      - unifi-db
     restart: unless-stopped
   unifi-db:
     image: mongo:4.4.6-bionic

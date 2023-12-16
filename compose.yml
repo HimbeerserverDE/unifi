@@ -22,7 +22,7 @@ services:
       - 8080:8080
     restart: unless-stopped
   unifi-db:
-    image: mongo:4.4.26-focal
+    image: mongo:4.4.6-bionic
     container_name: unifi-db
     volumes:
       - type: bind

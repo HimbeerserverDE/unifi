@@ -1,0 +1,18 @@
+services:
+  unifi:
+    image: lscr.io/linuxserver/unifi-controller:latest
+    container_name: unifi
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Europe/Berlin
+    volumes:
+      - type: bind
+        source: ./config
+        target: /config
+    ports:
+      - 8443:8443
+      - 3478:3478/udp
+      - 10001:10001/udp
+      - 8080:8080
+    restart: unless-stopped
